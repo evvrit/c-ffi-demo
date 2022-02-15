@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-void let_the_show_begin() {
+void let_the_show_begin(void) {
   printf("dun dun dun...\n");
 }
 
