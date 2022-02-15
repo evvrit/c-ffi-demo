@@ -1,10 +1,10 @@
-from ctypes import *
+import ctypes
 from sys import argv
 import timeit
 
 
-my_lib = cdll.LoadLibrary("./my_lib.so")
-my_lib.parens_balanced.restype = c_bool
+my_lib = ctypes.cdll.LoadLibrary("./my_lib.so")
+my_lib.parens_balanced.restype = ctypes.c_bool
 
 
 def parens_balanced(paren_string):
@@ -66,10 +66,10 @@ if __name__ == '__main__':
 
   if argv[1] == 'example':
     py_str = input()
-    c_str = c_char_p(py_str.encode('ascii'))
+    c_str = ctypes.c_char_p(py_str.encode('ascii'))
     example(py_str, c_str)
 
   if argv[1] == 'benchmark':
     py_str = 10000 * '((((())(((((()((((()())))(())))))))((((((())))))))))'
-    c_str = c_char_p(py_str.encode('ascii'))
+    c_str = ctypes.c_char_p(py_str.encode('ascii'))
     benchmark(py_str, c_str)
