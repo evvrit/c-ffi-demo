@@ -4,6 +4,9 @@ clang:
 gcc:
 	gcc -shared -Ofast -o my_lib.so my_lib.c
 
+test:
+	python test.py
+
 example:
 	python main.py example
 
