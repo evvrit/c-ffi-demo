@@ -34,15 +34,15 @@ bool parens_balanced(char* paren_string) {
 
     char current_char = paren_string[index];
     if (current_char == '(') {
-      paren_depth = paren_depth + 1;
+      paren_depth += 1;
     } else if (current_char == ')') {
-      paren_depth = paren_depth - 1;
+      paren_depth -= 1;
     } else {
       printf("paren_string included a non-parenthesis: %c\n", current_char);
       exit(1);
     }
 
-    index = index + 1;
+    index += 1;
   }
 
   return paren_depth == 0;
