@@ -57,8 +57,7 @@ def example(py_str, c_str):
   else:
     print('Python says not balanced!')
 
-
-if __name__ == '__main__':
+def main():
   my_lib.let_the_show_begin()  
 
   if len(argv) < 2:
@@ -73,3 +72,6 @@ if __name__ == '__main__':
     py_str = 10000 * '((((())(((((()((((()())))(())))))))((((((())))))))))'
     c_str = ctypes.c_char_p(py_str.encode('ascii'))
     benchmark(py_str, c_str)
+
+if __name__ == '__main__':
+  main()
