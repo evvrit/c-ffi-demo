@@ -27,23 +27,16 @@ def parens_balanced(paren_string):
 def benchmark(py_str, c_str):
   runs = 100
 
-  # make sure the function works
-  if not parens_balanced(py_str):
-    raise ValueError('not balanced:', py_str)
   py_time_total = timeit.timeit(lambda: parens_balanced(py_str), number=runs)
   py_time_avg_ms = 1000 * py_time_total / runs
   print(f"average Python runtime: {py_time_avg_ms:.3f} milliseconds")
 
-  # make sure the function works
-  if not my_lib.parens_balanced(c_str):
-    raise ValueError('not balanced:', c_str)
   c_time_total = timeit.timeit(lambda: my_lib.parens_balanced(c_str), number=runs)
   c_time_avg_ms = 1000 * c_time_total / runs
   print(f"average C runtime: {c_time_avg_ms:.3f} milliseconds")
 
-  c_time_percentage = c_time_total / py_time_total
-  percentage = '{:.3%}'.format(c_time_percentage)
-  print(f'The C version took {percentage} of the time of the Python version')
+  percentage = c_time_total / py_time_total
+  print(f'The C version took {percentage:.3%} of the time of the Python version')
 
 
 def example(py_str, c_str):
